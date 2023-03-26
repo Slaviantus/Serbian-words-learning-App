@@ -1,0 +1,190 @@
+
+<MistakeCorrectionWindow@Screen>:
+    name:"mistake_correction"
+
+
+    sum_unknown: label_a
+    sum_known: label_b
+    sum_learned: label_c
+    original_word_label: label_d
+    answer_text_input: text_input_a
+    scale: box_layout_a
+    progress_level: box_layout_b
+    empty_progress: box_layout_c
+
+    on_enter: root.on_open_window()
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 0.025 * root.height
+
+        canvas.before:
+            Color:
+                rgba: 0.549, 0.941, 0.627, 1
+            Line:
+                width: 0.001 * root.height
+                rectangle: self.x + 0.025 * root.height, self.y + 0.025 * root.height, self.width - 0.05 * root.height, self.height - 0.05 * root.height
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.07 * root.height
+            padding: 0.01 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+
+            Label:
+                id: label_a
+                text: ""
+                color: 0.549, 0.941, 0.627, 1
+                font_size: 0.03 * root.height
+                font_name: 'clacon2.ttf'
+                size_hint: 0.07 * root.height, 1
+
+            Label:
+                text: "/"
+                color: 0.549, 0.941, 0.627, 1
+                font_size: 0.03 * root.height
+                font_name: 'clacon2.ttf'
+                size_hint: 0.07 * root.height, 1
+
+
+            Label:
+                id: label_b
+                text: ""
+                color: 0.549, 0.941, 0.627, 1
+                font_size: 0.03 * root.height
+                font_name: 'clacon2.ttf'
+                size_hint: 0.07 * root.height, 1
+
+
+            Label:
+                text: "/"
+                color: 0.549, 0.941, 0.627, 1
+                font_size: 0.03 * root.height
+                font_name: 'clacon2.ttf'
+                size_hint: 0.07 * root.height, 1
+
+
+            Label:
+                id: label_c
+                text: ""
+                color: 0.549, 0.941, 0.627, 1
+                font_size: 0.03 * root.height
+                font_name: 'clacon2.ttf'
+                size_hint: 0.07 * root.height, 1
+
+
+        BoxLayout:
+            id: box_layout_a
+            orientation: "horizontal"
+            size_hint: 1, 0.06 * root.height
+            padding: 0.01 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x, self.y, self.width, self.height
+
+            BoxLayout:
+                id: box_layout_b
+                orientation: "vertical"
+
+                canvas.before:
+                    Color:
+                        rgba: 0.549, 0.941, 0.627, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            BoxLayout:
+                id: box_layout_c
+                orientation: "vertical"
+
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.2 * root.height
+            padding: 0.02 * root.height
+
+
+            BackgroundLabel:
+                id: label_d
+                text: ""
+                font_name: 'clacon2.ttf'
+                color: 0, 0, 0, 1
+                font_size: 0.03 * root.height
+                size_hint: 1, 0.2 * root.height
+                halign: 'left'
+                valign: 'top'
+                text_size: self.size
+                background_color: 0.549, 0.941, 0.627, 1
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.2 * root.height
+            padding: 0.01 * root.height
+
+
+            TextInput:
+                id: text_input_a
+                font_name: 'clacon2.ttf'
+                foreground_color: 0.549, 0.941, 0.627, 1
+                background_color: 0, 0, 0, 0
+                font_size: 0.03 * root.height
+                size_hint: 1, 0.2 * root.height
+                multiline: True
+                cursor_color: 0.549, 0.941, 0.627, 1
+                padding: 0.02 * root.height
+                on_text: root.set_multiline_true()
+
+                canvas.before:
+                    Color:
+                        rgba: 0.549, 0.941, 0.627, 1
+                    Line:
+                        width: 0.002 * root.height
+                        rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.07 * root.height
+
+
+        Button:
+            text: "BACK"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.04 * root.height
+            size_hint: 1, 0.07 * root.height
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.002 * root.height
+                    rectangle: self.x, self.y, self.width, self.height
+
+            on_press:
+                self.background_color = 0.549, 0.941, 0.627, 1
+                self.color = 0, 0, 0, 1
+
+            on_release:
+                self.background_color = 0, 0, 0, 0
+                self.color = 0.549, 0.941, 0.627, 1
+                root.on_back_button_clicked()
+                app.root.current = "modules_list"
+
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.33 * root.height

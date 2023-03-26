@@ -1,0 +1,169 @@
+#:include edit_module.kv
+
+<AddWordWindow@Screen>:
+    name:"add_word"
+
+
+    enter_cyrilic: text_input_a
+    enter_latin: text_input_b
+    enter_translation: text_input_c
+
+    on_enter: root.on_open_window()
+
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 0.025 * root.height
+
+        canvas.before:
+            Color:
+                rgba: 0.549, 0.941, 0.627, 1
+            Line:
+                width: 0.001 * root.height
+                rectangle: self.x + 0.025 * root.height, self.y + 0.025 * root.height, self.width - 0.05 * root.height, self.height - 0.05 * root.height
+
+        Label:
+            text: "ENTER WORD IN CYRILIC"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.03 * root.height
+            size_hint: 1, 0.07 * root.height
+            halign: 'center'
+            valign: 'center'
+            text_size: self.size
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+        TextInput:
+            id: text_input_a
+            font_name: 'clacon2.ttf'
+            foreground_color: 0.549, 0.941, 0.627, 1
+            background_color: 0, 0, 0, 0
+            font_size: 0.03 * root.height
+            size_hint: 1, 0.2 * root.height
+            multiline: True
+            cursor_color: 0.549, 0.941, 0.627, 1
+            padding: 0.02 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+        Label:
+            text: "ENTER WORD IN LATIN"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.03 * root.height
+            size_hint: 1, 0.07 * root.height
+            halign: 'center'
+            valign: 'center'
+            text_size: self.size
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+        TextInput:
+            id: text_input_b
+            font_name: 'clacon2.ttf'
+            foreground_color: 0.549, 0.941, 0.627, 1
+            background_color: 0, 0, 0, 0
+            font_size: 0.03 * root.height
+            size_hint: 1, 0.2 * root.height
+            multiline: True
+            cursor_color: 0.549, 0.941, 0.627, 1
+            padding: 0.02 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+        Label:
+            text: "ENTER TRANSLATION"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.03 * root.height
+            size_hint: 1, 0.07 * root.height
+            halign: 'center'
+            valign: 'center'
+            text_size: self.size
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+        TextInput:
+            id: text_input_c
+            font_name: 'clacon2.ttf'
+            foreground_color: 0.549, 0.941, 0.627, 1
+            background_color: 0, 0, 0, 0
+            font_size: 0.03 * root.height
+            size_hint: 1, 0.2 * root.height
+            multiline: True
+            cursor_color: 0.549, 0.941, 0.627, 1
+            padding: 0.02 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.05 * root.height
+
+        Button:
+            text: "ADD WORD"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.04 * root.height
+            size_hint: 1, 0.07 * root.height
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.002 * root.height
+                    rectangle: self.x, self.y, self.width, self.height
+
+            on_press:
+                self.background_color = 0.549, 0.941, 0.627, 1
+                self.color = 0, 0, 0, 1
+
+            on_release:
+                self.background_color = 0, 0, 0, 0
+                self.color = 0.549, 0.941, 0.627, 1
+                root.on_add_word_clicked()
+                app.root.current = "edit_module"
+
+
+        Button:
+            text: "BACK"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.04 * root.height
+            size_hint: 1, 0.07 * root.height
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.002 * root.height
+                    rectangle: self.x, self.y, self.width, self.height
+
+            on_press:
+                self.background_color = 0.549, 0.941, 0.627, 1
+                self.color = 0, 0, 0, 1
+
+            on_release:
+                self.background_color = 0, 0, 0, 0
+                self.color = 0.549, 0.941, 0.627, 1
+                app.root.current = "edit_module"

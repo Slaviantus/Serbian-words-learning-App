@@ -1,0 +1,9 @@
+#------- Files ------------
+
+srpski_database.db
+clacon2.otf
+
+#------- Directories -------
+.idea
+__pycache__
+venv

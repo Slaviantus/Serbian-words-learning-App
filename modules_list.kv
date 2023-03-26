@@ -1,0 +1,87 @@
+#:include introduction_module.kv
+#:include srpski.kv
+
+<ModulesListWindow@Screen>:
+
+    name: "modules_list"
+
+    modules_list: list_a
+
+    on_enter: root.on_open_window()
+    on_leave: root.on_close_window()
+
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 0.025 * root.height
+
+        canvas.before:
+            Color:
+                rgba: 0.549, 0.941, 0.627, 1
+            Line:
+                width: 0.001 * root.height
+                rectangle: self.x + 0.025 * root.height, self.y + 0.025 * root.height, self.width - 0.05 * root.height, self.height - 0.05 * root.height
+
+        Label:
+            text: "MODULES LIST"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.04 * root.height
+            size_hint: 1, 0.1 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: 0.01 * root.height
+            size_hint: 1, 0.83 * root.height
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.001 * root.height
+                    rectangle: self.x + 0.01 * root.height, self.y + 0.01 * root.height, self.width - 0.02 * root.height, self.height - 0.02 * root.height
+
+
+            ScrollView:
+                GridLayout:
+                    id: list_a
+                    cols: 2
+                    size_hint_y: None
+                    height: self.minimum_height
+
+        Button:
+            text: "BACK"
+            font_name: 'clacon2.ttf'
+            color: 0.549, 0.941, 0.627, 1
+            font_size: 0.04 * root.height
+            size_hint: 1, 0.07 * root.height
+            background_down: ''
+            background_color: 0, 0, 0, 0
+
+            canvas.before:
+                Color:
+                    rgba: 0.549, 0.941, 0.627, 1
+                Line:
+                    width: 0.002 * root.height
+                    rectangle: self.x, self.y, self.width, self.height
+
+            on_press:
+                self.background_color = 0.549, 0.941, 0.627, 1
+                self.color = 0, 0, 0, 1
+
+            on_release:
+                self.background_color = 0, 0, 0, 0
+                self.color = 0.549, 0.941, 0.627, 1
+                app.root.current = "start"
+
+
+
+
+
