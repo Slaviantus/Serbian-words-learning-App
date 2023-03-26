@@ -8,11 +8,11 @@ The learning proces is built on Memorization. The program selects a word from th
 
 1. Select correct answer
 
-(picture )
+![1 challenge](https://user-images.githubusercontent.com/39388022/227805716-693ac198-3734-40e7-bc1f-e92262ad725d.PNG)
 
 2. Write down Serbian word. Note, for the incorrect answer user gets fine score. For correct answer fine score decreseas. After the correct answer with zero fine score, the word is saved as "learnt" in system.
 
-(picture)
+![2 challenge](https://user-images.githubusercontent.com/39388022/227805733-ec4ed65c-86be-4398-9f1c-5af7cbbb9865.PNG)
 
 The learning process is finished when all words are leart in module.
 
